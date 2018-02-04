@@ -23,8 +23,9 @@ gulp.task('copy:jslibs', function() {
 gulp.task('gh-pages', function() {
 	return gulp
 		.src([
-			config.dist.root +'/**/**.*', 
-			'!' + config.dist.root +'/libs/**/**.*',
+			config.dist.root +'/**/**.*',
+			config.dist.root +'/images/svg/dest/**.*',
+			// '!' + config.dist.root +'/libs/**/**.*',
 			'!' + config.dist.root +'/images/svg/**/**.*',
 			'!' + config.dist.root +'/layout/**/**.*',
 			'!' + config.dist.root +'/js/report.html',
