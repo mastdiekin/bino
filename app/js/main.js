@@ -4,6 +4,7 @@ import '../libs/bootstrap/dist/js/bootstrap.bundle.js';
 import svg4everybody from '../libs/svg4everybody/dist/svg4everybody.legacy.js';
 import '../libs/slick-carousel/slick/slick.js';
 import Waypoint from '../libs/waypoints/lib/jquery.waypoints.js';
+import mixitup from 'mixitup';
 
 hello();
 svg4everybody({
@@ -11,6 +12,12 @@ svg4everybody({
 });
 
 $(window).ready(function() {
+
+  var mixer = mixitup('.portfolio__shuffle');
+
+  $('.portfolio__pagination a').click(function(event) {
+    event.preventDefault();
+  });
 
   $('.s, .about__monitor').css('opacity', 0);
 

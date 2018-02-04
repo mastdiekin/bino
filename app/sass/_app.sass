@@ -706,7 +706,8 @@ section
 			&:first-child
 				&:before
 					display: none
-			&.is-active
+			// &.is-active
+			&.mixitup-control-active
 				color: $main
 				+sansb
 				&:before
@@ -714,6 +715,8 @@ section
 					font-weight: 400
 			&:hover
 				color: $main
+				&:before
+					color: #999
 			+r(992)
 				margin-bottom: 10px
 				&:before
@@ -723,9 +726,9 @@ section
 		background-size: cover
 		background-position: 50% 50%
 		background-repeat: no-repeat
-		&-shuffle
-			// float: left
-			width: 25%
+		// &-shuffle
+		// 	// float: left
+		// 	width: 25%
 		>
 			a.look__all
 				display: block
