@@ -26,7 +26,7 @@ gulp.task('gh-pages', function() {
 			config.dist.root +'/**/**.*',
 			config.dist.root +'/images/svg/dest/**.*',
 			// '!' + config.dist.root +'/libs/**/**.*',
-			'!' + config.dist.root +'/images/svg/**/**.*',
+			'!' + config.dist.root +'/images/svg/**.*',
 			'!' + config.dist.root +'/layout/**/**.*',
 			'!' + config.dist.root +'/js/report.html',
 			'!' + config.dist.root +'/js/lib/hello.js'
