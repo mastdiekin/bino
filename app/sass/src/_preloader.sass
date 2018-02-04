@@ -1,0 +1,47 @@
+@import "vars"
+
+html.js
+	.loader
+		background: none repeat scroll 0 0 $w
+		bottom: 0
+		height: 100%
+		left: 0
+		+pf
+		right: 0
+		top: 0
+		width: 100%
+		z-index: 9999
+		transition: opacity .4s ease-in-out, visibility .4s ease-in-out
+		&--hidden
+			opacity: 0
+			visibility: hidden
+	.loader_inner 
+		background-color: $w
+		height: 60px
+		width: 60px
+		margin-top: -30px
+		margin-left: -30px
+		left: 50%
+		top: 50%
+		+pa
+
+
+.preloader
+	+pr
+	display: inline-block
+	span
+		+pa
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		z-index: 99
+		font-size: 30px
+		+sourceb
+		color: $w
+		display: block
+	.main__icon-border
+		background: rgba($main, .5)
+		animation: preloader__bino 2s reverse infinite
+	.main__icon
+		background: $main
+		animation: preloader__bino 1s linear infinite

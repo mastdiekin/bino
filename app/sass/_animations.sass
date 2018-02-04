@@ -1,0 +1,38 @@
+@keyframes fade__bino
+	from
+		transform: translate3d(0, 10px, 0)
+		opacity: 0
+	to
+		transform: translate3d(0, 0, 0)
+		opacity: 1
+
+.fade__bino
+	animation-name: fade__bino
+	animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955)
+
+
+@keyframes fadeInLeftSlow
+	from
+		opacity: 0
+		transform: translate3d(-50px, 0, 0)
+
+	to
+		opacity: 1
+		transform: none
+
+.fadeInLeftSlow
+	animation-name: fadeInLeftSlow
+
+
+
+@keyframes preloader__bino
+	from
+		transform: scale(1)
+	50%
+		transform: scale(.9)
+	to
+		transform: scale(1)
+
+.preloader__bino
+	animation-name: preloader__bino
+	animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955)

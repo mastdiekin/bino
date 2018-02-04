@@ -1,0 +1,1429 @@
+ul
+	padding: 0
+	margin: 0
+
+a
+	color: #6a6a6a
+	text-decoration: none
+	&:hover,
+	&:active,
+	&.is-active
+		color: $main
+
+button
+	padding: 0
+
+.h-100
+	height: 100% !important
+
+.w-100
+	width: 100% !important
+
+.hero
+	height: 100%
+	z-index: 1
+	overflow: hidden
+	+pr
+	min-height: $hero-min-height
+	&:hover
+		.hero__arrow
+			background: #706863
+			&:before
+				color: #3c3530 !important
+			&:hover
+				background: $main
+				&:before
+					color: $w !important
+		.hero__prev
+			left: $hero-arrow-gutter
+		.hero__next
+			right: $hero-arrow-gutter
+
+	&:before
+		+c
+		+pa
+		left: 0
+		right: 0
+		bottom: 0
+		height: 150px
+		background-image: url('../images/hero-bottom.svg')
+		z-index: 3
+		width: 100%
+		background-position: top
+		background-size: 100% 100%
+		text-align: center
+		+rh(700)
+			display: none
+		+r(768)
+			display: none
+	>
+		.container
+			+pr
+	&__top
+		+pa
+		left: 0
+		right: 0
+		top: 40px
+		z-index: 4
+	&__logo
+		display: block
+		.cls-2
+			fill: #4a4c55
+			font-size: 36px
+			font-weight: 700
+		.cls-1
+			fill: $w
+			font-size: 36px
+		.cls-3
+			fill: #f1ebe7
+			font-size: 36px
+		+r(769)
+			width: 130px
+			margin: 0 auto
+	&__menu
+		text-align: right
+		&.is-active
+			opacity: 1
+			visibility: visible
+			li
+				transform: translate(0, 0)
+				opacity: 1
+
+		+r(769)
+			opacity: 0
+			visibility: hidden
+			+pf
+			top: 0
+			left: 0
+			right: 0
+			background: rgba($b, .9)
+			text-align: center
+			height: 100%
+			max-height: 100vh
+			overflow-y: auto
+			padding: 15px
+			transition: opacity $t, visibility $t
+			li
+				display: block
+				margin: 0
+				transform: translate(0, -5px)
+				opacity: 0
+				transition: transform $t, opacity $t
+				transition-delay: .3s
+				a
+					color: $w
+					transition: background $t, color $t
+					&:hover
+						background: rgba($main, .5)
+						color: $w
+					&:before
+						display: none
+		li
+			display: inline-block
+			margin-left: 59px
+			+fm
+			a
+				display: block
+				+lh(60, 14)
+				+pr
+				text-transform: uppercase
+				color: $content-bg
+				letter-spacing: 0
+				&:before
+					+c
+					+pa
+					left: 0
+					right: 0
+					bottom: 0
+					height: 1px
+					background: $main
+					opacity: 0
+					visibility: hidden
+					transition: opacity $t, visibility $t, transform $t
+					transform: translate(0, -2px)
+				&:hover,
+				&.is-active
+					color: $main
+					&:before
+						opacity: 1
+						visibility: visible
+						transform: translate(0, 0)
+				&.is-active
+					+sansb
+	&__item
+		height: 100% !important
+		// background-size: cover
+		// background-repeat: no-repeat
+		// background-position: 50% 50%
+		min-height: $hero-min-height
+		+pr
+		color: $w
+		text-align: center
+		span
+			display: block
+		&:after
+			+c
+			+pa
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			z-index: 1
+			background: $b
+			opacity: .7
+		>
+			.container
+				+pr
+				z-index: 2
+	&__bg
+		+pa
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		img
+			width: 100%
+			background-size: cover
+			height: 100%
+			transform: scale(1.2)
+			transition: transform 1s ease-out
+	&__slider
+		z-index: 1
+		+pr
+		height: 100%
+		min-height: $hero-min-height
+		.slick-active
+			.hero__bg
+				img
+					transform: scale(1)
+					transition: transform 1s ease
+	&__prev,
+	&__next
+		+pa
+		top: 50%
+		transform: translate(0, -50%)
+		z-index: 2
+		// opacity: 0
+		// visibility: hidden
+	&__prev
+		left: $hero-arrow-gutter - 10
+		+r(992)
+			left: 0
+		&:before
+			top: -2px
+			left: -4px
+	&__next
+		right: $hero-arrow-gutter - 10
+		+r(992)
+			right: 0
+		&:before
+			transform: rotate(180deg)
+			right: -2px
+			top: 1px
+	&__arrow
+		// background: #706863
+		+qd(45)
+		border-radius: 2px
+		line-height: 45px
+		text-align: center
+		// transition: background $t, color $t, opacity $t, visibility $t, left $t, right $t
+		transition: background $t, color $t, left $t, right $t
+		+r(769)
+			display: none
+		&:hover
+			background: $main
+			&:before
+				color: $w
+		&:before
+			+pr
+			+fa
+			display: block
+			content: '\f104'
+			// color: #3c3530
+			color: shade($w, 30%)
+			font-size: 41px
+			transition: background $t, color $t
+	&__info
+		span
+			display: block
+		.line
+			margin: $line-margin auto
+			+r(992)
+				margin: $line-margin/2 auto
+	&__title
+		&-top
+			font-size: 24px
+			+source
+			+r(770)
+				+lh(35, 24)
+				margin-bottom: 20px
+		&-bottom
+			font-size: 72px
+			+sansb
+			text-transform: uppercase
+			+lh(101, 72)
+			+r(770)
+				font-size: 40px
+				+lh(50, 40)
+	&__text
+		color: #cbc6c0
+		+lh(24, 14)
+		display: block
+		max-width: 590px
+		margin: 0 auto 71px
+		+r(769)
+			display: none
+		p
+			margin: 0
+	&__buttons
+		a,
+		button
+			margin-left: 29px
+			+fm
+			+r(577)
+				display: block
+				width: 100%
+				margin: 0
+				margin-bottom: 10px
+				&:last-child
+					margin-bottom: 0
+	&__anchor
+		&-border
+			+pa
+			bottom: -10px
+			left: 50%
+			transform: translate(-50%, 0)
+			+rh(700)
+				bottom: 20px
+			+r(769)
+				bottom: 20px
+	.btn
+		&.transparent
+			&:hover
+				background-color: $main
+				border-color: transparent
+				color: $w
+		&.fill
+			&:hover
+				background-color: transparent
+				border-color: $w
+				color: $w
+	.slick-list,
+	.slick-track
+		height: 100% !important
+		min-height: $hero-min-height
+		transition: all 1s cubic-bezier(0.7, 0, 0.3, 1)
+
+	.slick-slide
+		>
+			div
+				height: 100%
+				min-height: $hero-min-height
+
+.slick-slider
+	-webkit-user-select: text
+	-khtml-user-select: text
+	-moz-user-select: text
+	-ms-user-select: text
+	user-select: text
+
+.main
+	&__title
+		+sourceb
+		font-size: 36px
+		text-transform: uppercase
+		color: #6a6a6a
+		text-align: center
+	&__icon
+		+sq(64)
+		background: $w
+		+df
+		+cc
+		svg
+			z-index: 99
+			+pr
+			width: 22px
+			fill: $main
+		&-border
+			+df
+			+cc
+			+sq(74)
+			background: rgba($w, .25)
+			z-index: 3
+			outline: none
+	&__text
+		font-size: 14px
+		+lh(29, 14)
+		+source
+		color: #999
+		+r(769)
+			text-align: center
+
+.center
+	text-align: center
+
+.no-padding
+	padding-left: 0
+	padding-right: 0
+
+.btn
+	min-width: 225px
+	height: 56px
+	line-height: 56px
+	text-align: center
+	text-transform: uppercase
+	color: $w
+	border-radius: 2px
+	&__shadow
+		box-shadow: 0 2px 4.8px 0.3px rgba(0, 0, 0, 0.25)
+	&__inline
+		display: inline-block
+	&.transparent
+		border: 2px solid $w
+		transition: background $t, color $t, border-color $t
+	&.fill
+		background-color: $main
+		border: 2px solid transparent
+		transition: background $t, color $t, border-color $t
+		&:hover
+			color: $w
+			background: darken($main, 10%)
+	&.inactive
+		background-color: #999
+
+
+.mobile__btn
+	+pf
+	top: 45px
+	right: 15px
+	width: 40px
+	height: 40px
+	z-index: 99
+	display: block
+	background-color: transparent
+	border: 0
+	cursor: pointer
+	outline: none
+	span
+		width: 30px
+		height: 2px
+		background: $main
+		+pa
+		left: 50%
+		margin-left: -15px
+		top: 0
+		border-radius: 3px
+		transition: transform $t
+		&:nth-of-type(1)
+			top: 10px
+		&:nth-of-type(2)
+			top: 50%
+			margin-top: -1px
+		&:nth-of-type(3)
+			top: auto
+			bottom: 10px
+	&.is-active
+		span
+			&:nth-of-type(2)
+				opacity: 0
+				visibility: hidden
+				transform: scale(0)
+			&:nth-of-type(1)
+				transform: rotate(-45deg)
+				top: 18px
+			&:nth-of-type(3)
+				transform: rotate(45deg)
+				bottom: 20px
+			&:nth-of-type(1),
+			&:nth-of-type(3)
+
+	+rmin(769)
+		display: none
+
+.line
+	display: block
+	+sq(7)
+	background: $main
+	+pr
+	margin: 0 auto
+	&:before,
+	&:after
+		+c
+		+pa
+		width: 81px
+		height: 1px
+		background: $w
+		top: 50%
+	&:before
+		left: 21px
+	&:after
+		right: 21px
+	&__white
+		&:before,
+		&:after
+			background: $w
+	&__grey
+		&:before,
+		&:after
+			background: #999
+
+section
+	padding: $section-gutter 0 0
+	+r(769)
+		padding: $section-gutter/2 0 0
+
+.sub__title
+	text-transform: uppercase
+	font-size: 18px
+	color: #6a6a6a
+	+sansb
+	+pr
+	text-align: center
+	&:before
+		+c
+		+pa
+		left: 50%
+		transform: translate(-50%, 0)
+		background: #6a6a6a
+		width: 41px
+		height: 1px
+		bottom: -15px
+		box-shadow: 0px 1px 0px 0px rgba(225,225,225,1)
+
+.line__title
+	font-size: 36px
+	text-transform: uppercase
+	+sourceb
+	color: #6a6a6a
+	+pr
+	&:before
+		+c
+		+pa
+		left: 0
+		width: 6px
+		height: 100%
+		background: $main
+	&-left
+		padding-left: 35px
+	&-right
+		text-align: right
+		padding-right: 35px
+		&:before
+			left: auto
+			right: 0
+
+.center-text
+	text-align: center
+
+.whoweare
+	+pr
+	&:before
+		+c
+		+pa
+		bottom: -$section-gutter/2
+		left: 0
+		right: 0
+		height: 1px
+		background: #e6e7eb
+		+r(769)
+			bottom: -$section-gutter/4
+	&__item
+		text-align: center
+		+r(769)
+			margin-bottom: $mobile-margin-bottom
+		&:hover
+			>
+				.whoweare__icon
+					transform: rotate(45deg)
+					border-color: $main
+					&:before
+						transform: rotate(-45deg)
+				.whoweare__title
+					color: $main
+	&__icon
+		+qd(73)
+		border: 1px solid #e5e5e5
+		+df
+		+cc
+		margin: 0 auto 26px
+		transition: transform $t
+		border-radius: 2px
+		&:before
+			+c
+			display: block
+			transition: transform $t
+		&.glass
+			&:before
+				+sprite($whoweare1)
+		&.heart
+			&:before
+				+sprite($whoweare2)
+		&.idea
+			&:before
+				+sprite($whoweare3)
+		&.dialog
+			&:before
+				+sprite($whoweare4)
+	&__title
+		margin-bottom: 30px
+		transition: color $t
+
+.about
+	&__monitor
+		img
+			width: 100%
+		+r(769)
+			margin-bottom: $mobile-margin-bottom
+
+.history
+	&__text
+		margin-bottom: 50px
+
+.services
+	.slick-active
+		.services__image
+			transform: translate3d(0, 0, 0)
+			opacity: 1
+			visibility: visible
+	&__title
+		color: $w
+		margin-bottom: 82px
+	&__name
+		text-transform: uppercase
+		color: $main
+		font-size: 18px
+		+sansb
+		+r(992)
+			text-align: center
+	&__item
+		background: #202020
+		overflow: hidden
+	&__info
+		text-align: right
+		max-width: 800px
+		margin-left: auto
+		padding: $services-padding 74px
+		+r(992)
+			padding: $services-padding/2 15px
+	&__image
+		background-size: cover
+		background-position: 50% 50%
+		background-repeat: no-repeat
+		height: 100%
+		transform: translate3d(20%, 0, 0)
+		opacity: 0
+		visibility: hidden
+		transition: transform 1s ease-in, opacity $t, visibility $t
+	&__block
+		+pr
+		margin-bottom: $mobile-margin-bottom
+		.main__icon
+			transition: transform .5s linear
+			transform: rotate(0deg) scale(1)
+		&:hover
+			>
+				.main__icon-border
+					>
+						.main__icon
+							transform: rotate(360deg) scale(1.1)
+	&__icon
+		svg
+			width: 30px
+		&-border
+			+pa
+			top: 0
+			right: -112px
+			+r(992)
+				+pr
+				right: auto
+				margin: 0 auto
+	&__slider
+		+pr
+		>
+			.slick-dots
+				+pa
+				top: 50%
+				left: 49px
+				li
+					margin-bottom: 11px
+					button
+						font-size: 0
+						border: 0
+						width: 1px
+						height: 34px
+						background: #3e3e3e
+						cursor: pointer
+						outline: none
+						+pr
+						&:before
+							+c
+							+pa
+							width: 20px
+							height: 44px
+							top: -5px
+							left: -9px
+					&.slick-active
+						button
+							width: 2px
+							background: $main
+				+r(992)
+					+pa
+					top: 0
+					left: 50%
+					transform: translate(-50%, 0)
+					li
+						display: inline-block
+						margin-bottom: 0
+						margin-right: 11px
+						&:last-child
+							margin-right: 0
+						button
+							width: 34px
+							height: 1px
+							&:before
+								width: 44px
+								height: 20px
+								top: -9px
+								left: -5px
+						&.slick-active
+							button
+								width: 34px
+
+.portfolio
+	&__pagination
+		text-align: center
+		margin: 60px 0 45px
+		a
+			display: inline-block
+			margin-left: 41px
+			+fm
+			+pr
+			color: #999
+			&:before
+				content: "/"
+				+pa
+				left: -20px
+			&:first-child
+				&:before
+					display: none
+			&.is-active
+				color: $main
+				+sansb
+				&:before
+					color: #999
+					font-weight: 400
+			&:hover
+				color: $main
+			+r(992)
+				margin-bottom: 10px
+				&:before
+					display: none
+	&__item
+		+pr
+		background-size: cover
+		background-position: 50% 50%
+		background-repeat: no-repeat
+		&-shuffle
+			// float: left
+			width: 25%
+		>
+			a.look__all
+				display: block
+				height: 480px
+				+pr
+				&:before
+					+c
+					+pa
+					background: rgba($main, .80)
+					top: 0
+					bottom: 0
+					left: 0
+					right: 0
+					opacity: 0
+					visibility: hidden
+					transition: opacity $t, visibility $t
+				&:hover
+					&:before
+						opacity: 1
+						visibility: visible
+					>
+						.portfolio__info
+							opacity: 1
+							visibility: visible
+				span
+					display: block
+	&__info
+		+pa
+		bottom: 0
+		left: 0
+		padding: 0 50px 50px
+		opacity: 0
+		visibility: hidden
+		transition: opacity $t, visibility $t
+	&__name,
+	&__category
+		color: $w
+	&__name
+		font-size: 24px
+		+sourceb
+		text-transform: uppercase
+		line-height: 1.4
+		+pr
+		&:before
+			+c
+			+pa
+			height: 4px
+			width: 44px
+			background: $w
+			top: -31px
+			left: 0
+	&__category
+		font-size: 14px
+
+.study
+	background: $content-bg
+	padding-bottom: $section-gutter
+	+pr
+
+	&__image
+		background-position: 50% 50%
+		background-repeat: no-repeat
+		background-size: cover
+		height: 100%
+		margin-left: -40px
+		transform: translate(-40px, 0)
+		transition: transform $t
+		+r(992)
+			margin-left: 0
+			height: 500px
+	.slick-active
+		.study__image
+			transform: translate(0, 0)
+			transition: transform $t
+	&__info
+		background: $w
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+		padding: 80px 30px
+		margin: 50px 0
+		margin-right: -40px
+		z-index: 1
+		+pr
+		p
+			margin: 30px 0
+		+r(992)
+			margin-right: 0
+			margin-bottom: 0
+			margin-top: 0
+	&__item
+		.container
+			max-width: 100%
+	&__icon
+		transform: rotate(45deg)
+		+qd(64)
+		background: $main
+		+df
+		+cc
+		margin: 0 auto 50px
+		&.idea-white
+			&:before
+				+c
+				+pr
+				display: block
+				transform: rotate(-45deg)
+				+sprite($idea-white)
+	&__wrapper
+		+pr
+		+r(992)
+			max-width: 100%
+	&__dots
+		+pa
+		bottom: 65px
+		width: $dots-calc
+		margin-left: 30px
+		height: 12px
+		z-index: 3
+		// left: calc(50% + -120px)
+		// margin-left: -25%
+		// +df
+		// +cg
+		+r(992)
+			left: 50%
+			transform: translate(-50%, 0)
+			margin-left: 0
+			text-align: center
+			// margin-left: -$dots-calc/2
+			bottom: auto
+			top: 20px
+		ul
+			li
+				display: inline-block
+				margin-left: 8px
+				+fm
+				button
+					font-size: 0
+					+sq(12)
+					background: $content-bg
+					border: 0
+					cursor: pointer
+					outline: none
+					+r(992)
+						background: shade($content-bg, 20%)
+				&.slick-active
+					button
+						background: $main
+	.btn
+		margin: 0 auto
+		display: block
+		width: 144px
+		min-width: auto
+	.line
+		margin-bottom: $line-margin-bottom
+	.slick-dots
+		+pa
+		bottom: 0
+		+r(769)
+			+pr
+
+.stats
+	background-image: url('../images/stats.jpg')
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: 50% 50%
+	padding-bottom: $section-gutter
+	background-attachment: fixed
+	+r(769)
+		padding-bottom: $section-gutter/2
+	&__item
+		+df
+		+cc
+		flex-direction: column
+		color: $w
+		text-align: center
+		+r(769)
+			margin-bottom: $mobile-margin-bottom
+	&__icon
+		+sq(111)
+		border: 1px solid  $w
+		+df
+		+cc
+		margin-bottom: 48px
+		&:before
+			+c
+			display: block
+		&.heart-white
+			&:before
+				+sprite($heart-white)
+		&.label-white
+			&:before
+				+sprite($label-white)
+		&.like-white
+			&:before
+				+sprite($like-white)
+		&.star-white
+			&:before
+				+sprite($star-white)
+		&.stripe-white
+			&:before
+				+sprite($stripe-white)
+	&__number
+		font-size: 30px
+		+sansb
+		margin-bottom: 17px
+	&__text
+		font-size: 18px
+
+.pricing
+	padding-bottom: $section-gutter
+	+r(769)
+		padding-bottom: $section-gutter/2
+	.line
+		margin-bottom: $line-margin-bottom
+
+	&__item
+		background: $content-bg
+		// transform: scale(1)
+		// transition: transform $t, box-shadow $t
+		transition: box-shadow $t
+		+r(769)
+			margin-bottom: $mobile-margin-bottom
+		&:hover
+			// transform: scale(1.01)
+			box-shadow: 0px 0px 22px -5px rgba(0,0,0,0.5)
+			>
+				.pricing__title
+					background: $main
+				.pricing__price
+					>
+						.main__icon
+							width: $price-round-length - 10
+							height: $price-round-length - 10
+							>
+								.price
+									color: $main
+				.pricing__features
+					>
+						.btn
+							background: $main
+
+	&__title
+		min-height: 206px
+		background: #999
+		padding: $pricing-padding
+		padding-top: 50px
+		transition: background $t
+		>
+			.title
+				text-align: center
+				display: block
+				text-transform: uppercase
+				color: $w
+				+sansb
+				font-size: 24px
+	&__features
+		padding: $pricing-padding
+		padding-top: 0
+		text-align: center
+		ul
+			font-size: 14px
+			color: #999
+			margin-bottom: 50px
+			li
+				+lh(40, 14)
+		>
+			.btn
+				+r(992)
+					width: 100%
+					min-width: auto
+	&__price
+		width: $price-round-length
+		height: $price-round-length
+		margin: - $price-round-length/2 auto 0
+		+pr
+		transition: color $t
+		&:before
+			+c
+			+pa
+			bottom: 0
+			left: 0
+			right: 0
+			height: 50%
+			background: $content-bg
+			z-index: 0
+		>
+			.main__icon
+				width: $price-round-length - 30
+				height: $price-round-length - 30
+				transition: width $t, height $t
+				flex-direction: column
+				color: #999
+				text-align: center
+				+pr
+				z-index: 1
+				>
+					.price
+						font-size: 32px
+						+sourceb
+					.month
+						font-size: 13px
+						+source
+
+.team
+	+pr
+	height: 792px
+	overflow: hidden
+	background-image: url('../images/team.jpg')
+	background-size: cover
+	background-position: 50% 0
+	background-repeat: no-repeat
+	+r(769)
+		height: auto
+	>
+		.container-fluid
+			>
+				.container
+					+pr
+					z-index: 1
+	.line
+		+r(769)
+			margin-bottom: $line-margin-bottom
+	.main__title,
+	.main__text
+		+pr
+		z-index: 1
+		color: $w
+	&__stripe
+		+pa
+		bottom: -5px
+		left: 0
+		right: 0
+		opacity: .2
+		width: 100%
+		height: 792px
+		background-image: url('../images/line-bg.svg')
+		background-size: cover
+		background-position: 50% 0
+		margin: 0 auto
+		z-index: 0
+		+r(769)
+			display: none
+		// z-index: 3
+		// background-size: 100% 100%
+		// height: 0
+		// padding: 0
+		// padding-bottom: calc(101% * 0.9 / 4)
+
+		// height: 792px
+		// background-position: top
+		// background-size: 100% 100%
+		// text-align: center
+	&__item
+		+pa
+		+r(769)
+			margin-bottom: $mobile-margin-bottom*2
+		&.first
+			left: 0
+			top: 40px
+		&.second
+			left: 275px
+			top: 52px
+			+r(1201)
+				left: 200px
+			+r(992)
+				top: 60px
+				left: 150px
+		&.third
+			top: 110px
+			right: 474px
+			+r(1201)
+				top: 80px
+			+r(992)
+				right: 290px
+				top: 100px
+		&.fourth
+			top: 160px
+			right: 237px
+			+r(1201)
+				top: 140px
+			+r(992)
+				right: 150px
+		&.fifth
+			top: 160px
+			right: 0
+		&:hover
+			.team__photo
+				transform: scale(1)
+				&:before
+					visibility: visible
+					opacity: 1
+					height: 40px
+				img
+					box-shadow: 0 5px 12.8px 2.3px black
+			.team__name
+				opacity: 1
+				visibility: visible
+			.team__position
+				opacity: 1
+				visibility: visible
+		+r(769)
+			+pr
+			right: auto !important
+			left: auto !important
+			top: auto !important
+	&__photo
+		text-align: center
+		margin-bottom: 85px
+		transform-origin: 50% 50%
+		transform: scale(0.8)
+		+pr
+		transition: transform .4s ease-in
+		+r(769)
+			margin-bottom: 25px
+		&:before
+			+c
+			+pa
+			left: 50%
+			width: 1px
+			height: 0
+			background: $w
+			bottom: -30px
+			z-index: 0
+			opacity: 0
+			visibility: hidden
+			transition: visibility $t, opacity $t, height .3s ease
+			+r(769)
+				display: none
+
+		+r(769)
+			transform: scale(1)
+		img
+			border-radius: 50%
+			border: 3px solid $main
+			transition: box-shadow .4s ease-in
+			width: 85px
+			height: 85px
+			+pr
+			z-index: 1
+	&__name
+		+sansb
+		font-size: 24px
+		color: $main
+		text-align: center
+		opacity: 0
+		visibility: hidden
+		transition: visibility $t, opacity $t
+		+r(769)
+			opacity: 1
+			visibility: visible
+	&__position
+		text-align: center
+		color: $w
+		+source
+		opacity: 0
+		visibility: hidden
+		transition: visibility $t, opacity $t
+		+r(769)
+			opacity: 1
+			visibility: visible
+
+
+.clients
+	background: $content-bg
+	// padding-bottom: $section-gutter
+	+pr
+	&:before
+		@extend .whoweare:before
+	.w-100
+		+r(992)
+			width: auto !important
+	// +r(769)
+	// 	padding-bottom: $section-gutter/2
+	&__item
+		width: 100%
+		padding: 10px
+		background: $w
+		box-shadow: 0 1px 3px rgba(31, 31, 31, 0.09)
+		+df
+		+cc
+		height: 100px
+		margin-bottom: $mobile-margin-bottom
+		a
+			display: block
+		img
+			max-width: 100%
+			min-width: 100%
+			width: 100%
+	.line
+		margin-bottom: $line-margin-bottom
+
+.blog
+	background: $content-bg
+	.look__all
+		+sansb
+		font-style: italic
+		color: $w
+		&:after
+			content: '\f101'
+			+fa
+			display: inline-block
+			margin-left: 10px
+			transition: margin-left $t
+		&:hover
+			&:after
+				margin-left: 13px
+	.line
+		margin-bottom: $line-margin-bottom
+	.no-padding
+		+r(992)
+			padding-left: 15px
+			padding-right: 15px
+	&__text
+		height: 100%
+		&:before
+			+c
+			+pa
+			top: 50%
+			margin-top: -34px
+			+r(1201)
+				display: none
+		&-right
+			&:before
+				left: -27px
+				+arr(27, 68, $main, l)
+		&-left
+			&:before
+				right: -27px
+				+arr(27, 68, $main, r)
+	&__photo
+		height: 100%
+		background-size: cover
+		background-position: 50% 50%
+		background-repeat: no-repeat
+		+r(769)
+			min-height: 300px
+	&__text
+		background: $main
+		color: $w
+		padding: 50px
+		@extend .main__text
+	&__category
+		@extend .portfolio__category
+	&__name
+		@extend .portfolio__name
+		margin-bottom: 30px
+		a
+			color: $w
+		&:before
+			top: auto
+			bottom: -11px
+			+r(769)
+				left: 50%
+				transform: translate(-50%, 0)
+	&__item
+		width: 100%
+.contact
+	background: $content-bg
+	padding-bottom: $section-gutter
+	>
+		.container
+			+r(769)
+				max-width: 100%
+	+r(769)
+		padding-bottom: $section-gutter/2
+	.line
+		margin-bottom: $line-margin-bottom
+	&__wrapper
+		background: $w
+		padding: 50px
+		border-radius: 2px
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+		height: 100%
+		p
+			font-size: 18px
+			+lh(24, 18)
+			color: #b3b3b3
+			+r(769)
+				margin-bottom: $mobile-margin-bottom
+	&__name
+		@extend .services__name
+	&__form
+		input,
+		textarea,
+		button
+			display: block
+			width: 100%
+			margin-bottom: 15px
+			background-color: transparent
+			outline: none
+			+sans
+			color: #999
+			border: 0
+			border-bottom: 1px solid #e5e5e5 !important
+			+placeholder
+				color: #999
+
+		input
+			min-height: 40px
+		textarea
+			resize: none
+			min-height: 100px
+		input,
+		textarea
+			+placeholder
+				opacity: 1
+				visibility: visible
+				transition: opacity $t, visibility $t
+			&:focus
+				+placeholder
+					opacity: 0
+					visibility: hidden
+		button
+			cursor: pointer
+			width: auto
+			color: $w
+			border-bottom: 0 !important
+
+.promo
+	color: $w
+	+pr
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: 50% 0
+	padding-bottom: $section-gutter
+	text-align: center
+	+r(769)
+		padding-bottom: $section-gutter/2
+	>
+		.container
+			+pr
+			z-index: 2
+	&:before
+		+c
+		+pa
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		background: rgba($b, .6)
+	&__title
+		font-size: 36px
+		display: block
+		width: 100%
+		.b
+			+sansb
+	.btn
+		margin: 0 auto
+	p
+		margin-bottom: 73px
+
+footer.footer
+	padding: 30px 0
+	background: #202020
+	color: #999
+	+pr
+	+r(769)
+		text-align: center
+	.footer
+		&__copyright
+			text-align: right
+			+r(769)
+				text-align: center
+		&__social
+			li
+				display: inline-block
+				margin-left: 26px
+				+fm
+				+r(992)
+					margin-bottom: 20px
+				a
+					&:hover
+						svg
+							fill: $main
+					svg
+						width: 20px
+						height: 20px
+						fill: #999
+
+.goup
+	width: $goup-length
+	height: $goup-length
+	border-radius: 50%
+	background: $main
+	color: $w
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25)
+	+df
+	+cc
+	+pa
+	top: - $goup-length/2
+	right: 51px
+	transition: color $t, background $t
+	+r(769)
+		width: $goup-length - 10
+		height: $goup-length - 10
+		right: 15px
+	&:hover
+		color: $main
+		background: $w
+	&:before
+		content: '\f106'
+		+fa
+		font-size: 23px
